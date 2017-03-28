@@ -42,24 +42,24 @@ node("master"){
         popd
         """
       }
-      stage ("Publish App Artifactory")
-      {
-        sh """
-        pushd ${workspaceDir}/${appName}/apps/${appName}-app
-        ./gradlew artifactoryPublish
-        popd
-        """
-      }
+//      stage ("Publish App Artifactory")
+//      {
+//        sh """
+//        pushd ${workspaceDir}/${appName}/apps/${appName}-app
+//        ./gradlew artifactoryPublish
+//        popd
+//        """
+//      }
 
-      stage ("Publish Docker App")
-      {
-        // Run all tasks on the app. This includes pushing to OpenShift and S3.
-        sh """
-        pushd ${workspaceDir}/${appName}/apps/${appName}-app
-        ./gradlew ${GRADLE_TASK}
-        popd
-        """
-      }
+//      stage ("Publish Docker App")
+//      {
+//        // Run all tasks on the app. This includes pushing to OpenShift and S3.
+//        sh """
+//        pushd ${workspaceDir}/${appName}/apps/${appName}-app
+//        ./gradlew ${GRADLE_TASK}
+//        popd
+//        """
+//      }
     }
     catch(e){
         echo e.toString()
