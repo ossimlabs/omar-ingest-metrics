@@ -15,6 +15,7 @@ node(""){
     def appName = "omar-ingest-metrics"
     def omarCommonProjName = "omar-common"
     env.OMAR_COMMON_PROPERTIES="${workspaceDir}/${omarCommonProjName}/omar-common-properties.gradle"
+    env.O2_DEV_HOME = pwd()
 
     stage("Checkout"){
         dir("ossim-ci") {
@@ -34,7 +35,7 @@ node(""){
         dir("omar-hibernate-spatial") {
             git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-hibernate-spatial.git"
         }
-        
+
 
         notifyObj = load "${workspaceDir}/ossim-ci/jenkins/pipeline/notify.groovy"
     }
