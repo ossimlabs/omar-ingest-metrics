@@ -19,34 +19,31 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>startIngest</b> marks the start of the overall ingest process.  This will create a new record initialized to the
-    current time and use the ingestId to index this record. This will mark the record with a RUNNING status.
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-           <b>ingestId</b><p/>
-           Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br>
-        <li>
-           <b>description</b><p/>
-           General description for this record
-        </li>
+The service api **startIngest** marks the start of the overall ingest process. This will create a new record initialized to the current time and use the ingestId to index this record. This will mark the record with a RUNNING status.  
 
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-          "description": "",
-        }
-        </pre>
-    <ul>
-    <H2>RETURNS</H2>
-    <br><br>
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+*   **description**
+
+    General description for this record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```        
+{
+    "ingestId": "",
+    "description": "",
+}
+```
+
+## RETURNS
     The current values for the record in JSON format
     """)
     @ApiImplicitParams( [
@@ -76,26 +73,25 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>endIngest</b> marks the end of the overall ingest process. This will mark the record as finished.
-    This will use the current date and time to mark the time of the call
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-				Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-        }
-        </pre>
-    <ul>
-    """)
+The service api **endIngest** marks the end of the overall ingest process. This will mark the record as finished. This will use the current date and time to mark the time of the call  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+{
+  "ingestId": "",
+}
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
     ] )
@@ -123,25 +119,24 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>startCopy</b> marks the start of a copy operation.  This might include just copying the files into a different location or
-    downloading from a remote location. This will use the current date and time to mark the time of the call
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-				Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-        }
-        </pre>
-    <ul>
+The service api **startCopy** marks the start of a copy operation. This might include just copying the files into a different location or downloading from a remote location. This will use the current date and time to mark the time of the call  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+    {
+      "ingestId": "",
+    }
+```
     """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
@@ -169,25 +164,25 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>startCopy</b> marks the end of a copy operation.  This will use the current date and time to mark the time of the call
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-				Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-        }
-        </pre>
-    <ul>
-    """)
+The service api **startCopy** marks the end of a copy operation. This will use the current date and time to mark the time of the call  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+{
+    "ingestId": "",
+}
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
     ] )
@@ -214,27 +209,29 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>startStaging</b> marks the start of a staging operation.  This will include the creation of any needed overviews,
-    histograms or anyother files that might need to be  pre calaculated.  This will use the current
-    date and time to mark the time of the call
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-				Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-        }
-        </pre>
-    <ul>
-    """)
+The service api **startStaging** marks the start of a 
+staging operation. This will include the creation of 
+any needed overviews, histograms or anyother files that 
+might need to be pre calaculated. This will use 
+the current date and time to mark the time of the call  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+    {
+        "ingestId": ""
+    }
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
     ] )
@@ -262,26 +259,25 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    The service api <b>endStaging</b> marks the end of a staging operation.  This will use the current
-    date and time to mark the time of the call
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-				Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-        }
-        </pre>
-    <ul>
-    """)
+The service api **endStaging** marks the end of a staging operation. This will use the current date and time to mark the time of the call  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string 
+and post to the URL.  The format supported:
+
+```        
+    {
+        "ingestId": "",
+    }
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
     ] )
@@ -309,87 +305,82 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
+## Parameter List
 
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-            Pass the ingestId used to identify the ingest metric record
-        </li>
-        <br>
-        <li>
-            <b>newIngestId</b><p/>
-            Used to allow one to change the name of the indexId.  You mus specify both indexId and newIndexId to
-            change an indexId.
-        </li>
-        <br>
-        <li>
-            <b>description</b><p/>
-            Basic description used for this record.
-        </li>
-        <br>
-        <li>
-            <b>startDate</b><p/>
-            specify the start for date of the entire ingest process.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>endDate</b><p/>
-            specify the end for date of the entire ingest process.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:01:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>startCopy</b><p/>
-            specify the start date for the copy.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:01:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>endCopy</b><p/>
-            specify the end date for the copy.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:01:00.001Z
-        </li>
-        <li>
-            <b>startStaging</b><p/>
-            specify the start date for the staging.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:01:00.001Z
-        </li>
-        <li>
-            <b>endStaging</b><p/>
-            specify the end date for the staging.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:01:00.001Z
-        </li>
-        <li>
-            <b>status</b><p/>
-            Can be RUNNING, FINISHED, or FAILED
-        </li>
-        <li>
-            <b>statusMessage</b><p/>
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-          "newIngestId": "",
-          "ingestId": "",
-          "description": "",
-          "startDate": "",
-          "endDate": "",
-          "startCopy": "",
-          "endCopy": "",
-          "startStaging": "",
-          "endStaging": "",
-          "status": "",
-          "statusMessage": "",
-        }
-        </pre>
-    <ul>
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest 
+    metric record
+
+*   **newIngestId**
+
+    Used to allow one to change the name of the indexId.
+    You mus specify both indexId and newIndexId to change an indexId.
+
+*   **description**
+
+    Basic description used for this record.
+
+*   **startDate**
+
+    specify the start for date of the entire ingest 
+    process. The date is in the format of an ISO date 
+    standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **endDate**
+
+    specify the end for date of the entire ingest process. 
+    The date is in the format of an ISO date standard. For 
+    example: 2016-01-01T00:01:00.001Z
+
+*   **startCopy**
+
+    specify the start date for the copy. The date is in the format of an ISO date 
+    standard. For example: 2016-01-01T00:01:00.001Z
+
+*   **endCopy**
+
+    specify the end date for the copy. The date is in the 
+    format of an ISO date standard. 
+    For example: 2016-01-01T00:01:00.001Z
+
+*   **startStaging**
+
+    specify the start date for the staging. The date is in 
+    the format of an ISO date standard. For example: 2016-01-01T00:01:00.001Z
+
+*   **endStaging**
+
+    specify the end date for the staging. The date is in 
+    the format of an ISO date standard. For example: 2016-01-01T00:01:00.001Z
+
+*   **status**
+
+    Can be RUNNING, FINISHED, or FAILED
+
+*   **statusMessage**
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+    {
+      "ingestId": "",
+      "newIngestId": "",
+      "ingestId": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "startCopy": "",
+      "endCopy": "",
+      "startStaging": "",
+      "endStaging": "",
+      "status": "",
+      "statusMessage": "",
+    }
+``` 
     """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
@@ -428,45 +419,35 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    Delete records from the database.  If no parameters are specified then all records are removed.
-    If the ingestId is specified then just that ingest ID is removed.  If start and end date is specified then
-    only value between and including the dates are deleted.  If the end date only is specified then anything including or
-    less than that date is deleted.  If startDate only then anything greater or equal to that date is deleted
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-            Pass the ingestId used to identify the ingest metric record.  This will allow one to delete a record by the
-            ingestId
-        </li>
-        <br>
-        <li>
-            <b>startDate</b><p/>
-            Specify the startDate.  If the startDate is specified and the end date is not then it will
-            delete all records equal to and after the date specified.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>endDate</b><p/>
-            Specify the endDate.  If the startDate is specified and the end date is specified then it will
-            delete all records between and including the two dates.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-          "startDate": "",
-          "endDate": "",
-        }
-        </pre>
-    <ul>
-    """)
+Delete records from the database. If no parameters are specified then all records are removed. If the ingestId is specified then just that ingest ID is removed. If start and end date is specified then only value between and including the dates are deleted. If the end date only is specified then anything including or less than that date is deleted. If startDate only then anything greater or equal to that date is deleted  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record. This will allow one to delete a record by the ingestId
+
+*   **startDate**
+
+    Specify the startDate. If the startDate is specified and the end date is not then it will delete all records equal to and after the date specified. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **endDate**
+
+    Specify the endDate. If the startDate is specified and the end date is specified then it will delete all records between and including the two dates. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+**Additional Notes**
+        
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```
+    {
+      "ingestId": "",
+      "startDate": "",
+      "endDate": "",
+    }
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
             @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
@@ -495,56 +476,45 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-    list records from the database.  If no parameters are specified then all records are listed based on a pagination maximum.
-    If the ingestId is specified then just that ingest ID is listed.  If start and end date is specified then
-    only value between and including the dates are listed.  If the end date only is specified then anything including or
-    less than that date is listed.  If startDate only then anything greater or equal to that date is listed
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-            Pass the ingestId used to identify the ingest metric record.  This will allow one to list a record by the ingestId
-        </li>
-        <br>
-        <li>
-            <b>startDate</b><p/>
-            Specify the startDate.  If the startDate is specified and the end date is not then it will
-            delete all records equal to and after the date specified.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>endDate</b><p/>
-            Specify the endDate.  If the startDate is specified and the end date is specified then it will
-            delete all records between and including the two dates.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>limit</b><p/>
-            number of records to limit in the result set
-        </li>
-        <br>
-        <li>
-            <b>offset</b><p/>
-             number of records to offset by
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-          "startDate": "",
-          "endDate": "",
-          "limit": 100,
-          "offset": 0,
-        }
-        </pre>
-    <ul>
-    """)
+list records from the database. If no parameters are specified then all records are listed based on a pagination maximum. If the ingestId is specified then just that ingest ID is listed. If start and end date is specified then only value between and including the dates are listed. If the end date only is specified then anything including or less than that date is listed. If startDate only then anything greater or equal to that date is listed  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record. This will allow one to list a record by the ingestId
+
+*   **startDate**
+
+    Specify the startDate. If the startDate is specified and the end date is not then it will delete all records equal to and after the date specified. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **endDate**
+
+    Specify the endDate. If the startDate is specified and the end date is specified then it will delete all records between and including the two dates. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **limit**
+
+    number of records to limit in the result set
+
+*   **offset**
+
+    number of records to offset by
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and post 
+to the URL.  The format supported:
+
+```        
+    {
+      "ingestId": "",
+      "startDate": "",
+      "endDate": "",
+      "limit": 100,
+      "offset": 0,
+    }
+```    
+        """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
             @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
@@ -577,61 +547,53 @@ class IngestMetricsController {
             produces = 'text/plain',
             httpMethod = 'POST',
             notes = """
-        The summary will output duration times.  You can summarize individual rows or it will sum up and entire range and show average
-        times for each stage of the ingest process and the overall times.  <b>Currently all time durations are in seconds</b>
-    <br><br>
-    <H2>Parameter List</H2>
-    <br><br>
-    <ul>
-        <li>
-            <b>ingestId</b><p/>
-            Pass the ingestId used to identify the ingest metric record.  This will allow one to list a record by the ingestId
-        </li>
-        <br>
-        <li>
-            <b>startDate</b><p/>
-            Specify the startDate.  If the startDate is specified and the end date is not then it will
-            delete all records equal to and after the date specified.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>endDate</b><p/>
-            Specify the endDate.  If the startDate is specified and the end date is specified then it will
-            delete all records between and including the two dates.  The date is in the format of an ISO date standard.
-            For example: 2016-01-01T00:00:00.001Z
-        </li>
-        <br>
-        <li>
-            <b>individual</b><p/>
-            Boolean value true, false.  This specifies if you want to do a summary on each individual record instead of
-            summing them all together.
-        </li>
-        <br>
-        <li>
-            <b>limit</b><p/>
-            number of records to limit in the result set
-        </li>
-        <br>
-        <li>
-            <b>offset</b><p/>
-             number of records to offset by
-        </li>
-        <br><br>
-        <b>Additional Notes</b><br><br>
-        You can also pass the arguments as a JSON string and post to the URL.  The format supported:
-        <pre>
-        {
-          "ingestId": "",
-          "startDate": "",
-          "endDate": "",
-          "individual": true,
-          "limit": 100,
-          "offset": 0,
-        }
-        </pre>
-    <ul>
-    """)
+The summary will output duration times. You can 
+summarize individual rows or it will sum up and entire 
+ange and show average times for each stage of the ingest
+process and the overall times. **Currently all time durations are in seconds**  
+
+## Parameter List
+
+*   **ingestId**
+
+    Pass the ingestId used to identify the ingest metric record. This will allow one to list a record by the ingestId
+
+*   **startDate**
+
+    Specify the startDate. If the startDate is specified and the end date is not then it will delete all records equal to and after the date specified. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **endDate**
+
+    Specify the endDate. If the startDate is specified and the end date is specified then it will delete all records between and including the two dates. The date is in the format of an ISO date standard. For example: 2016-01-01T00:00:00.001Z
+
+*   **individual**
+
+    Boolean value true, false. This specifies if you want to do a summary on each individual record instead of summing them all together.
+
+*   **limit**
+
+    number of records to limit in the result set
+
+*   **offset**
+
+    number of records to offset by
+
+**Additional Notes**
+
+You can also pass the arguments as a JSON string and 
+post to the URL.  The format supported:
+
+```        
+    {
+      "ingestId": "",
+      "startDate": "",
+      "endDate": "",
+      "individual": true,
+      "limit": 100,
+      "offset": 0,
+    }
+```
+            """)
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
             @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
