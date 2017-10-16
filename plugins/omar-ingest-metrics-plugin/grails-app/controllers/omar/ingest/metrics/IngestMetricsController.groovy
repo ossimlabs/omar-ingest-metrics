@@ -47,8 +47,8 @@ post to the URL.  The format supported:
     The current values for the record in JSON format
     """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
-            @ApiImplicitParam( name = 'description', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
+            @ApiImplicitParam( name = 'description', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = false ),
     ] )
     def startIngest(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -93,7 +93,7 @@ post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
     ] )
     def endIngest(){
 
@@ -139,7 +139,7 @@ post to the URL.  The format supported:
 ```
     """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
     ] )
     def startCopy(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -184,7 +184,7 @@ post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
     ] )
     def endCopy(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -233,7 +233,7 @@ post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
     ] )
     def startStaging(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -279,7 +279,7 @@ and post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
     ] )
     def endStaging(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -383,17 +383,17 @@ post to the URL.  The format supported:
 ``` 
     """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = true ),
-            @ApiImplicitParam( name = 'newIngestId', value = 'Used to change an ingestId to another ID', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'description', value = 'Set the description of the ingestId', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startDate', value = 'Set the start date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endDate', value = 'Set the end date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startCopy', value = 'Set the start copy date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endCopy', value = 'Set the end copy date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startStaging', value = 'Set the start staging date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endStaging', value = 'Set the end staging date using a formatted ISO standard', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'status', allowableValues="[RUNNING, FINISHED, FAILED]", value = 'set the status', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'statusMessage', value = 'set the status message', dataType = 'string', required = false ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = true ),
+            @ApiImplicitParam( name = 'newIngestId', value = 'Used to change an ingestId to another ID', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'description', value = 'Set the description of the ingestId', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startDate', value = 'Set the start date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endDate', value = 'Set the end date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startCopy', value = 'Set the start copy date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endCopy', value = 'Set the end copy date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startStaging', value = 'Set the start staging date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endStaging', value = 'Set the end staging date using a formatted ISO standard', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'status', allowableValues="[RUNNING, FINISHED, FAILED]", value = 'set the status', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'statusMessage', value = 'set the status message', dataType = 'string', paramType="query", required = false ),
     ] )
     def save(){
         def jsonData = request.JSON?request.JSON as HashMap:null
@@ -449,9 +449,9 @@ post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', required = false ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false ),
     ] )
     def delete()
     {
@@ -516,13 +516,13 @@ to the URL.  The format supported:
 ```    
         """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'limit', value = 'Max records to return', defaultValue= "10", dataType = 'integer', required = false ),
-            @ApiImplicitParam( name = 'offset', value = 'End date for the date range',  defaultValue= "0", dataType = 'string', required = false ),
-            @ApiImplicitParam(name = 'sortBy', value = 'Sort by', paramType = 'query', defaultValue="startDate", dataType = 'string'),
-            @ApiImplicitParam(name = 'order', value = 'Order', defaultValue="desc", allowableValues="[asc, desc]", paramType = 'query', dataType = 'string', required=false)
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'limit', value = 'Max records to return', defaultValue= "10", dataType = 'integer', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'offset', value = 'End date for the date range',  defaultValue= "0", dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam(name = 'sortBy', value = 'Sort by', paramType = 'query', defaultValue="startDate", dataType = 'string', paramType="query", ),
+            @ApiImplicitParam(name = 'order', value = 'Order', defaultValue="desc", allowableValues="[asc, desc]", paramType = 'query', dataType = 'string', paramType="query", required=false)
     ] )
     def list()
     {
@@ -595,12 +595,12 @@ post to the URL.  The format supported:
 ```
             """)
     @ApiImplicitParams( [
-            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', required = false ),
-            @ApiImplicitParam( name = 'individual', allowableValues="[true,false]", defaultValue="false", value = 'Flag to specify whether to do an individual sumary', dataType = 'boolean', required = false ),
-            @ApiImplicitParam( name = 'limit', value = 'Max records to return', defaultValue= "10", dataType = 'integer', required = false ),
-            @ApiImplicitParam( name = 'offset', value = 'End date for the date range',  defaultValue= "0", dataType = 'string', required = false ),
+            @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'individual', allowableValues="[true,false]", defaultValue="false", value = 'Flag to specify whether to do an individual sumary', dataType = 'boolean', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'limit', value = 'Max records to return', defaultValue= "10", dataType = 'integer', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'offset', value = 'End date for the date range',  defaultValue= "0", dataType = 'string', paramType="query", required = false ),
     ] )
     def summary()
     {
