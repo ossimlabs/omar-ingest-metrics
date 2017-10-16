@@ -451,7 +451,7 @@ post to the URL.  The format supported:
     @ApiImplicitParams( [
             @ApiImplicitParam( name = 'ingestId', value = 'ID Used to identify the ingest record', dataType = 'string', paramType="query", required = false ),
             @ApiImplicitParam( name = 'startDate', value = 'Start date for the date range', dataType = 'string', paramType="query", required = false ),
-            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false ),
+            @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false )
     ] )
     def delete()
     {
@@ -472,6 +472,7 @@ post to the URL.  The format supported:
 
         render contentType: "application/json", text: resultString
     }
+
     @ApiOperation( value = "Allows one to list records from the ingest database",
             produces = 'text/plain',
             httpMethod = 'POST',
@@ -521,8 +522,8 @@ to the URL.  The format supported:
             @ApiImplicitParam( name = 'endDate', value = 'End date for the date range', dataType = 'string', paramType="query", required = false ),
             @ApiImplicitParam( name = 'limit', value = 'Max records to return', defaultValue= "10", dataType = 'integer', paramType="query", required = false ),
             @ApiImplicitParam( name = 'offset', value = 'End date for the date range',  defaultValue= "0", dataType = 'string', paramType="query", required = false ),
-            @ApiImplicitParam(name = 'sortBy', value = 'Sort by', paramType = 'query', defaultValue="startDate", dataType = 'string', paramType="query", ),
-            @ApiImplicitParam(name = 'order', value = 'Order', defaultValue="desc", allowableValues="[asc, desc]", paramType = 'query', dataType = 'string', paramType="query", required=false)
+            @ApiImplicitParam(name = 'sortBy', value = 'Sort by', defaultValue="startDate", dataType = 'string', paramType="query", required=false ),
+            @ApiImplicitParam(name = 'order', value = 'Order', defaultValue="desc", allowableValues="asc, desc", dataType = 'string', paramType="query", required=false)
     ] )
     def list()
     {
