@@ -28,29 +28,29 @@ Only required for Jenkins pipelines or if you are running Artifactory and/or Ope
 3. Install omar-core-plugin (it is part of the omar-core repo).
 ```
  cd omar-core/plugins/omar-core-plugin
- ./gradlew clean install
+ gradle clean install
 ```
 
 4. Install omar-hibernate-spatial-plugin
 ```
  cd omar-ingest-metrics/plugins/omar-hibernate-spatial-plugin
- ./gradlew clean install
+ gradle clean install
 ```
 
 5. Install omar-ingest-metrics-plugin
 ```
  cd omar-ingest-metrics/plugins/omar-ingest-metrics-plugin
- ./gradlew clean install
+ gradle clean install
 ```
 
 6. Build/Install omar-ingest-metrics-app
 #### Build:
 ```
  cd omar-ingest-metrics/apps/omar-ingest-metrics-app
- ./gradlew clean build
+ gradle clean build
  ```
 #### Install:
 ```
  cd omar-ingest-metrics/apps/omar-ingest-metrics-app
- ./gradlew clean install
+ gradle clean install
 ```
