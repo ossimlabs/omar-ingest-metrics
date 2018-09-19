@@ -1,6 +1,6 @@
 # omar-ingest-metrics
 
-[![Build Status](https://jenkins.radiantbluecloud.com/buildStatus/icon?job=omar-ingest-metrics-dev)]("#")
+[![Build Status](https://jenkins.ossim.io/buildStatus/icon?job=omar-ingest-metrics-dev)]("#")
 
 ### Required environment variable
 - OMAR_COMMON_PROPERTIES
