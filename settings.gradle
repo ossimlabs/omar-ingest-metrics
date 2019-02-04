@@ -4,13 +4,9 @@ pluginManagement {
     gradlePluginPortal()
   }
 }
-def final O2_DEV_HOME = System.getenv('O2_DEV_HOME')
 
-if ( O2_DEV_HOME ) {
+include 'omar-ingest-metrics-app',
+        'omar-ingest-metrics-plugin'
 
-   include 'omar-ingest-metrics-app',
-           'omar-ingest-metrics-plugin'
-
-   project(':omar-ingest-metrics-app').projectDir = "${O2_DEV_HOME}/omar-ingest-metrics/apps/omar-ingest-metrics-app" as File
-   project(':omar-ingest-metrics-plugin').projectDir = "${O2_DEV_HOME}/omar-ingest-metrics/plugins/omar-ingest-metrics-plugin" as File
-}
+project(':omar-ingest-metrics-app').projectDir = "${rootProject.projectDir}/apps/omar-ingest-metrics-app" as File
+project(':omar-ingest-metrics-plugin').projectDir = "${rootProject.projectDir}/plugins/omar-ingest-metrics-plugin" as File
