@@ -9,11 +9,11 @@ buildscript {
   }
   repositories {
     mavenLocal()
-    maven { url "${ossimMavenProxy}" }
+    maven { url ossimMavenProxy }
   }
   dependencies {
     classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-    classpath "com.bertramlabs.plugins:asset-pipeline-gradle:${assetPipelineGradleV}"
+    classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.10"
   }
 }
 
@@ -41,7 +41,7 @@ ext {
 
 repositories {
   mavenLocal()
-  maven { url "${ossimMavenProxy}" }
+  maven { url ossimMavenProxy }
 }
 
 // dependencyManagement {
@@ -52,8 +52,8 @@ repositories {
 // }
 
 dependencies {
-  compile "io.ossim.omar.plugins:omar-core-plugin:+"
-  compile "io.ossim.omar.plugins:omar-hibernate-spatial-plugin:+"
+  compile "io.ossim.omar.plugins:omar-core-plugin:${latestGradleIdentifier}"
+  compile "io.ossim.omar.plugins:omar-hibernate-spatial-plugin:${latestGradleIdentifier}"
 
   compile "org.springframework.boot:spring-boot-starter-logging"
   compile "org.springframework.boot:spring-boot-autoconfigure"
